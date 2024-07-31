@@ -1,0 +1,343 @@
+﻿<UserControl x:Class="Projeto.CountryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+             mc:Ignorable="d"
+             Background="#F0F0F0"
+             d:DesignHeight="800" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <!-- Image labels -->
+            <RowDefinition Height="40"/>
+            <!-- Images -->
+            <RowDefinition Height="140"/>
+            <!-- Separator -->
+            <RowDefinition Height="20"/>
+            <!-- Data 1 -->
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <!-- Separator -->
+            <RowDefinition Height="20"/>
+            <!-- Data 2 -->
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <!-- Separator -->
+            <RowDefinition Height="20"/>
+            <!-- Data 3 -->
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <!-- Separator -->
+            <RowDefinition Height="20"/>
+            <!-- Google Maps -->
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+            <!-- OpenStreetMaps -->
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="195"/>
+            <ColumnDefinition Width="195"/>
+            <ColumnDefinition Width="195"/>
+            <ColumnDefinition Width="195"/>
+        </Grid.ColumnDefinitions>
+        <!-- Separators-->
+        <Rectangle Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource SeparatorStyle}"/>
+        <Rectangle Grid.Row="6"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource SeparatorStyle}"/>
+        <Rectangle Grid.Row="11"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource SeparatorStyle}"/>
+        <Rectangle Grid.Row="15"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource SeparatorStyle}"/>
+        
+        <!-- Image labels -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   TextAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="3"
+                   Text="Flag"/>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="2"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   TextAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="3"
+                   Text="Coat of Arms"/>
+        <!-- Images -->
+        <Image Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Source="/Images/loading.png"
+               x:Name="FlagImage"/>
+        <Image Grid.Row="1"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Source="/Images/loading.png"
+               x:Name="COAImage"/>
+
+        <!-- Data 1 -->
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Official Name: n/a"
+                   x:Name="OfficialName"/>
+        <TextBlock Grid.Row="3"
+                   Grid.Column="4"
+                   Style="{DynamicResource ContentTextStyle}">
+            <Hyperlink x:Name="AlternativeSpellings">
+                Alternative Spellings
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{DynamicResource ContentTextStyle}">
+            Native Names: 
+            <Hyperlink x:Name="NativeNames" >
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="4"
+           Grid.Column="2"
+           Style="{DynamicResource ContentTextStyle}"
+           Text="Independent? n/a"
+           x:Name="Independent"/>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="3"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Status n/a"
+                   x:Name="Status"/>
+        <TextBlock Grid.Row="5"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{DynamicResource ContentTextStyle}">
+            Country Name Translations:
+            <Hyperlink x:Name="Translations">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <Grid Grid.Row="5"
+              Grid.Column="2"
+              Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Style="{DynamicResource ContentTextStyle}"
+                       Text="CCA2: n/a"
+                       x:Name="CCA2"/>
+            <TextBlock Grid.Column="1"
+                       Style="{DynamicResource ContentTextStyle}"
+                       Text="CCA3: n/a"
+                       x:Name="CCA3"/>
+            <TextBlock Grid.Column="2"
+                       Style="{DynamicResource ContentTextStyle}"
+                       Text="CCN3: n/a"
+                       x:Name="CCN3"/>
+        </Grid>
+        
+        <!-- Data 2 -->
+        <TextBlock Grid.Row="7"
+                   Grid.Column="0"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Latitude: n/a"
+                   x:Name="Latitude"/>
+        <TextBlock Grid.Row="8"
+                   Grid.Column="0"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Capital Lat: n/a"
+                   x:Name="CapitalLat"/>
+        <TextBlock Grid.Row="7"
+                   Grid.Column="1"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Longitude: n/a"
+                   x:Name="Longitude"/>
+        <TextBlock Grid.Row="8"
+                   Grid.Column="1"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="CapitalLng: n/a"
+                   x:Name="CapitalLng"/>
+        <TextBlock Grid.Row="7"
+                   Grid.Column="2"
+                   Grid.RowSpan="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Area: n/a"
+                   x:Name="Area"/>
+        <TextBlock Grid.Row="7"
+                   Grid.Column="3"
+                   Grid.RowSpan="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Landlocked? n/a"
+                   x:Name="Landlocked"/>
+        <TextBlock Grid.Row="9"
+                   Grid.Column="0"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Population: n/a"
+                   x:Name="Population"/>
+        <TextBlock Grid.Row="9"
+                   Grid.Column="1"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Gini: n/a"
+                   x:Name="Gini"/>
+        <TextBlock Grid.Row="9"
+                   Grid.Column="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Start of Week: n/a"
+                   x:Name="StartOfWeek"/>
+        <TextBlock Grid.Row="9"
+                   Grid.Column="3"
+                   Style="{DynamicResource ContentTextStyle}">
+            Borders:
+            <Hyperlink x:Name="Borders">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="10"
+                   Grid.Column="0"
+                   Style="{DynamicResource ContentTextStyle}">
+            Languages:
+            <Hyperlink x:Name="Languages">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="10"
+                   Grid.Column="1"
+                   Style="{DynamicResource ContentTextStyle}">
+            Demonyms:
+            <Hyperlink x:Name="Demonyms">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="10"
+                   Grid.Column="2"
+                   Style="{DynamicResource ContentTextStyle}">
+            Car Details:
+            <Hyperlink x:Name="CarDetails">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="10"
+                   Grid.Column="3"
+                   Style="{DynamicResource ContentTextStyle}">
+            Timezones:
+            <Hyperlink x:Name="Timezones">
+                Inspect
+            </Hyperlink>
+        </TextBlock>
+
+        <!-- Data 3 -->
+        <TextBlock Grid.Row="12"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Top-Level Domains: n/a"
+                   x:Name="TLD"/>
+        <TextBlock Grid.Row="13"
+                   Grid.Column="0"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Code in FIFA: n/a"
+                   x:Name="FIFA"/>
+        <TextBlock Grid.Row="13"
+                   Grid.Column="1"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Code in IOC: n/a"
+                   x:Name="CIOC"/>
+        <TextBlock Grid.Row="13"
+                   Grid.Column="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="IDD Root: n/a"
+                   x:Name="IDDRoot"/>
+        <TextBlock Grid.Row="13"
+                   Grid.Column="14"
+                   Style="{DynamicResource ContentTextStyle}"
+                   x:Name="IDDSuffixes">
+            Suffixes:
+        </TextBlock>
+        <TextBlock Grid.Row="14"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Postal Code Format: n/a"
+                   x:Name="PostalCodeFormat"/>
+        <TextBlock Grid.Row="14"
+                   Grid.Column="2"
+                   Grid.ColumnSpan="2"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Text="Postal Code Regex: n/a"
+                   x:Name="PostalCodeRegex"/>
+
+        <!-- Google Maps -->
+        <TextBlock Grid.Row="16"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Margin="6 3"
+                   VerticalAlignment="Bottom">
+            Google Maps
+            <TextBlock x:Name="GoogleMapsStatus"
+                       Text=" (Loading...)"/>
+        </TextBlock>
+        <Viewbox Grid.Row="17"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="4"
+                 Margin="60 5"
+                 StretchDirection="DownOnly"
+                 Visibility="Collapsed"
+                 x:Name="GoogleMapsBox">
+            <Border BorderThickness="2" BorderBrush="Black">
+                <wpf:ChromiumWebBrowser Width="1920"
+                                        Height="1080"
+                                        x:Name="GoogleMaps"/>
+            </Border>
+        </Viewbox>
+
+        <!-- OpenStreetMaps -->
+        <TextBlock Grid.Row="18"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Style="{DynamicResource ContentTextStyle}"
+                   Margin="6 3"
+                   VerticalAlignment="Bottom">
+            OpenStreetMap
+            <TextBlock x:Name="OpenStreetMapsStatus"
+                       Text=" (Loading...)"/>
+        </TextBlock>
+        <Viewbox Grid.Row="19"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="4"
+                 Margin="60 5"
+                 StretchDirection="DownOnly"
+                 Visibility="Collapsed"
+                 x:Name="OpenStreetMapsBox">
+            <Border BorderThickness="2" BorderBrush="Black">
+                <wpf:ChromiumWebBrowser Width="1280"
+                                        Height="720"
+                                        x:Name="OpenStreetMaps"/>
+            </Border>
+        </Viewbox>
+
+    </Grid>
+</UserControl>

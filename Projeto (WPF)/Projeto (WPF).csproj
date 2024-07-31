@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Projeto</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	
+	<!-- https://github.com/cefsharp/CefSharp/wiki/Quick-Start-For-MS-.Net-5.0-or-greater -->
+	<UseCurrentRuntimeIdentifier Condition="'$(UseCurrentRuntimeIdentifier)' == ''">true</UseCurrentRuntimeIdentifier>
+	<SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+	<ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <None Remove="Images\loading.png" />
+	  <None Remove="Images\na.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="CefSharp.Wpf.NETCore" Version="126.2.180" />
+	  <PackageReference Include="Emoji.Wpf" Version="0.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\Biblioteca\Biblioteca.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Resource Include="Images\loading.png" />
+	  <Resource Include="Images\na.png" />
+  </ItemGroup>
+	
+</Project>
